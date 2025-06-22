@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1150);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1150);
+      if (window.innerWidth > 1150) {
+        setIsOpen(false); // Close mobile menu if switching to desktop
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -50,33 +62,35 @@ export const Navbar = () => {
         </div>
         <motion.div
           className={styles.hamburger}
-          onClick={toggleMenu}
+          onClick={isMobile ? toggleMenu : undefined}
           whileTap={{ scale: 0.85 }}
         >
-          {isOpen ? (
+          {isMobile && (isOpen ? (
             <span className={styles.hamburgerIcons}>&#10005;</span>
           ) : (
             <span className={styles.hamburgerIcons}>&#9776;</span>
-          )}
+          ))}
         </motion.div>
         {/* Desktop nav */}
-        <motion.ul
-          className={`${styles.navContents} ${isOpen ? styles.show : ""}`}
-          variants={navListVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {["about", "projects", "contact"].map((section, idx) => (
-            <motion.li key={section} variants={navItemVariants}>
-              <a className={styles.navEl} href={`#${section}`}>
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </a>
-            </motion.li>
-          ))}
-        </motion.ul>
+        {!isMobile && (
+          <motion.ul
+            className={styles.navContents}
+            variants={navListVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {['about', 'projects', 'contact'].map((section, idx) => (
+              <motion.li key={section} variants={navItemVariants}>
+                <a className={styles.navEl} href={`#${section}`}>
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </a>
+              </motion.li>
+            ))}
+          </motion.ul>
+        )}
         {/* Mobile dropdown nav */}
         <AnimatePresence>
-          {isOpen && (
+          {isMobile && isOpen && (
             <motion.ul
               className={`${styles.navContents} ${styles.show}`}
               variants={mobileMenuVariants}
