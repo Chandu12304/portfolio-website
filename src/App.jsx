@@ -6,6 +6,7 @@ import styles from "./App.module.css";
 import { About } from "./components/About/About";
 import { Techstacks } from "./components/Techstacks/Techstacks";
 import { Projects } from "./components/Projects/Projects";
+import { LeetCodeProfile } from "./components/LeetCodeProfile/LeetCodeProfile";
 import { Contact } from "./components/Contact/Contact";
 import ParticlesComponent from "./components/particlejs/particle";
 
@@ -18,6 +19,7 @@ function App() {
       <About/>
       <Techstacks />
       <Projects />
+      <LeetCodeProfile />
       <Contact />
     </div>
   );

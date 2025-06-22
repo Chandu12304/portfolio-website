@@ -1,20 +1,20 @@
 /* root/src/vars.css */
 :root {
   /* Colors */
-  --color-text: #e6e6e6; /* Light text color */
-  --color-bg: #0d2b34; /* Background for hero */
-  --color-name: #6ec4c3;
-  --color-arrow: #e7f17e;
-  --color-highlight: #2c7343;
-  --color-codeEditorbg: #1a1c27;
-  --color-codeEditorHead: #c9c2c2;
-  --color-red: #bd4848;
-  --color-green: #71e131;
-  --color-yellow: #cab635;
-  --color-editorContent: #f5d879;
-  --color-editorLink: #7ee9ff;
-  --color-shape: #16454190;
-  --color-btn: #2c7343;
+  --color-bg: #101624; /* Deep blue background */
+  --color-text: #e6eaf3; /* Light blue-gray text */
+  --color-name: #5ad1ff; /* Cyan/blue accent for names */
+  --color-arrow: #7ecfff; /* Soft blue for arrows */
+  --color-highlight: #1e2a44; /* Slightly lighter blue for highlights */
+  --color-codeEditorbg: #172035; /* Editor background, dark blue */
+  --color-codeEditorHead: #2a3756; /* Editor header, muted blue */
+  --color-red: #ff5c5c; /* Red for errors */
+  --color-green: #4be38a; /* Green for success */
+  --color-yellow: #ffe066; /* Yellow for highlights */
+  --color-editorContent: #8fd6ff; /* Blue for code content */
+  --color-editorLink: #7ee9ff; /* Cyan for links */
+  --color-shape: #1a2a4d90; /* Blue shape accent */
+  --color-btn: #1e2a44; /* Button background, blue */
   /* Fonts */
   --font-outfit-stack: "Outfit", Arial, Helvetica, sans-serif;
   --font-roboto-mono: "Roboto Mono", monospace;

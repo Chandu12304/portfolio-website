@@ -228,3 +228,28 @@ h4 {
     font-size: 0.65rem;
   }
 }
+
+.truncateDesc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-word;
+  margin-bottom: 4px;
+}
+
+.readMore {
+  color: #5ad1ff;
+  font-size: 0.98rem;
+  font-family: "Roboto Mono", monospace;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-bottom: 6px;
+  display: inline-block;
+  transition: color 0.2s;
+}
+.readMore:hover {
+  color: #8fd6ff;
+}
